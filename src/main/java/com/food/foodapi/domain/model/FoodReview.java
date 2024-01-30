@@ -1,8 +1,8 @@
 package com.food.foodapi.domain.model;
 
-import jakarta.persistence.*;
 import lombok.*;
 
+import javax.persistence.*;
 import java.time.LocalDateTime;
 
 @Setter
