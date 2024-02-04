@@ -27,19 +27,10 @@ spring:
         rewriteBatchedStatements: true
   # JPA ??
   jpa:
-    generate-ddl: true
+    database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
       ddl-auto: update
-    show-sql: true
     properties:
       hibernate:
-        temp:
-          use_jdbc_metadata_defaults: false
-        dialect: org.hibernate.dialect.MySQL8Dialect
-        hbm2ddl.import_files_sql_extractor: org.hibernate.tool.hbm2ddl.MultipleLinesSqlCommandExtractor
-        current_session_context_class: org.springframework.orm.hibernate5.SpringSessionContext
-        default_batch_fetch_size: ${chunkSize:100}
-        jdbc.batch_size: 20
-        order_inserts: true
-        order_updates: true
-        format_sql: true
+        show_sql: true # 개발 시 SQL을 보고 싶다면 true로 설정
+        format_sql: true # SQL 포맷팅이 필요하다면 true로 설정

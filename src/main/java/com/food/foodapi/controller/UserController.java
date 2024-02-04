@@ -25,6 +25,7 @@ public class UserController {
                 .region(dto.getRegion())
                 .title(dto.getTitle())
                 .contents(dto.getContents())
+                .zipCode(dto.getZipCode())
                 .build());
         return ApiResponse.createCompleted();
     }

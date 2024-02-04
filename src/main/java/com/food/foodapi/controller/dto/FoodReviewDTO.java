@@ -1,5 +1,6 @@
 package com.food.foodapi.controller.dto;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
@@ -16,6 +17,8 @@ public class FoodReviewDTO {
     private String region;
     private Float latitude;
     private Float longitude;
+    @JsonProperty("zip_code")
+    private String zipCode;
     private String title;
     private String contents;
 

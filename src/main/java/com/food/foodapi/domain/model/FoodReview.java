@@ -1,9 +1,9 @@
 package com.food.foodapi.domain.model;
 
+import com.food.foodapi.common.entity.BaseEntity;
 import lombok.*;
 
 import javax.persistence.*;
-import java.time.LocalDateTime;
 
 @Setter
 @Getter
@@ -12,16 +12,12 @@ import java.time.LocalDateTime;
 @NoArgsConstructor
 @AllArgsConstructor
 @Table(name = "food_review")
-public class FoodReview {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long id;
-
+public class FoodReview extends BaseEntity {
     @Column(name = "title", length = 50)
     private String title;
 
-    @Column(name = "content", length = 100)
-    private String content;
+    @Column(name = "contents", length = 100)
+    private String contents;
 
     @Column(name = "thumbnail_path", length = 300)
     private String thumbnailPath;
@@ -38,16 +34,7 @@ public class FoodReview {
     @Column(name = "longitude", length = 100)
     private String longitude;
 
-    @Column(name = "created_by", length = 20, nullable = false)
-    private String createdBy;
-
-    @Column(name = "created_at", nullable = false)
-    private LocalDateTime createdAt;
-
-    @Column(name = "modified_by", length = 20, nullable = false)
-    private String modifiedBy;
-
-    @Column(name = "modified_at", nullable = false)
-    private LocalDateTime modifiedAt;
+    @Column(name = "zip_code", length = 5)
+    private String zipCode;
 
 }
