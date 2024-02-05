@@ -11,6 +11,11 @@ java {
     sourceCompatibility = '11'
 }
 
+bootJar{
+    archivesBaseName = 'foodest'
+    archiveFileName = 'foodest.jar'
+}
+
 configurations {
     compileOnly {
         extendsFrom annotationProcessor
