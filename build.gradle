@@ -13,7 +13,7 @@ java {
 
 bootJar{
     archivesBaseName = 'foodest'
-    archiveFileName = 'foodest.jar' 
+    archiveFileName = 'foodest.jar'
 }
 
 configurations {
