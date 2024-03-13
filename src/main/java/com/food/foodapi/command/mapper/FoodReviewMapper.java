@@ -6,5 +6,5 @@ import com.food.foodapi.domain.model.FoodReview;
 import org.mapstruct.Mapper;
 
 @Mapper(componentModel = "spring")
-public interface FoodReviewMapper extends GenericMapper<FoodReview, FoodReviewCommand> {
+public interface FoodReviewMapper extends GenericMapper<FoodReviewCommand, FoodReview> {
 }

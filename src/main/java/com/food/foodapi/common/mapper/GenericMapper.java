@@ -2,9 +2,9 @@ package com.food.foodapi.common.mapper;
 
 public interface GenericMapper<DTO, E> {
 
-    E entityToDTO(DTO source);
+    DTO entityToDTO(E source);
 
-    DTO dtoToEntity(E source);
+    E dtoToEntity(DTO source);
 
 }
 

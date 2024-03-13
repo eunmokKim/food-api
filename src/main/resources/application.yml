@@ -13,7 +13,7 @@ spring:
   # ??? ?? ??
   datasource:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://kmw0628.duckdns.org:15430/foodest?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true
+    url: jdbc:postgresql://kmw0628.duckdns.org:15430/homebar?useSSL=false&serverTimezone=UTC&useLegacyDatetimeCode=false&allowPublicKeyRetrieval=true
     username: foodest
     password: foodest
     hikari:
@@ -29,8 +29,20 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: update
+      ddl-auto: none
     properties:
       hibernate:
         show_sql: true # 개발 시 SQL을 보고 싶다면 true로 설정
         format_sql: true # SQL 포맷팅이 필요하다면 true로 설정
+
+kakao:
+  host: https://kauth.kakao.com
+  api-host : https://kapi.kakao.com
+  path:
+    authorize : /oauth/authorize #인가코드 받기
+    token: /oauth/token #토큰발급
+    my-info: /v2/user/me #내정보 가져오기
+  client-id: a35b0f512826cd888257b52690bd81ff
+  client-secret: 0M5LrUrGd6w9EK0UrenEtffR1y5Ug4Gu
+  redirect-url: http://localhost:3000/redirectLogin
+  redirect-main-url: http://localhost:3000/admin

@@ -4,12 +4,15 @@ import com.food.foodapi.command.UserCommandService;
 import com.food.foodapi.command.dto.FoodReviewCommand;
 import com.food.foodapi.common.dto.ApiResponse;
 import com.food.foodapi.controller.dto.FoodReviewDTO;
+import com.food.foodapi.controller.dto.RegionDTO;
 import com.food.foodapi.query.UserQueryService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.validation.Valid;
 
 @RestController
 @RequiredArgsConstructor
@@ -21,7 +24,7 @@ public class UserController {
 
     @PostMapping("/food_review")
     public ApiResponse foodReview(@RequestBody FoodReviewDTO dto){
-        userCommandService.save(FoodReviewCommand.builder()
+        userCommandService.registerReview(FoodReviewCommand.builder()
                 .region(dto.getRegion())
                 .title(dto.getTitle())
                 .contents(dto.getContents())
@@ -29,5 +32,10 @@ public class UserController {
                 .build());
         return ApiResponse.createCompleted();
     }
+
+    /*@PostMapping("/region")
+    public ApiResponse registerRegion(@Valid @RequestBody RegionDTO regionDTO){
+
+    }*/
 
 }
