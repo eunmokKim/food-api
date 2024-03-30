@@ -6,12 +6,15 @@ import com.food.foodapi.command.dto.UsersCommand;
 import com.food.foodapi.command.mapper.FoodReviewMapper;
 import com.food.foodapi.command.mapper.TokenInfoMapper;
 import com.food.foodapi.command.mapper.UsersMapper;
+import com.food.foodapi.domain.model.Users;
 import com.food.foodapi.domain.repository.FoodReviewRepository;
 import com.food.foodapi.domain.repository.TokenInfoRepository;
 import com.food.foodapi.domain.repository.UsersRepository;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+
+import java.util.Objects;
 
 @Service
 @Transactional
@@ -33,7 +36,13 @@ public class UserCommandService {
         tokenInfoRepository.save(tokenInfoMapper.dtoToEntity(command));
     }
 
-    public void registerUsers(UsersCommand command){
-        usersRepository.save(usersMapper.dtoToEntity(command));
+    public Users registerUsers(UsersCommand command){
+        Users findUser = usersRepository.findByUserEmail(command.getUserEmail());
+
+        if(Objects.isNull(findUser)){
+            Users users = usersRepository.save(usersMapper.dtoToEntity(command));
+        }
+
+        return findUser;
     }
 }

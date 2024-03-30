@@ -18,12 +18,23 @@ public class KakaoLoginController {
 
     @GetMapping("/login")
     public String redirectLoginPage(){
-        return kakaoApiService.requestGetAuthorizeCode();
+        return kakaoApiService.getLoginUrl();
+    }
+
+    @GetMapping("/logout")
+    public String redirectLogoutPage(){
+        return kakaoApiService.getLogoutUrl();
     }
 
     @GetMapping("/login/callback")
     public KakaoUserInfoView redirectLoginCallback(@RequestParam("code") String code){
-        KakaoTokenResponse response = loginService.getToken(code);
-        return loginService.getUserInfo(response.getAccessToken());
+        KakaoTokenResponse tokenInfo = loginService.getToken(code);
+        KakaoUserInfoView userInfo = loginService.getUserInfo(tokenInfo.getAccessToken());
+        return KakaoUserInfoView.builder()
+                .userEmail(userInfo.getUserEmail())
+                .nickName(userInfo.getNickName())
+                .accessToken(userInfo.getAccessToken())
+                .refreshToken(tokenInfo.getRefreshToken())
+                .build();
     }
 }

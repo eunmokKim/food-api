@@ -12,4 +12,5 @@ import lombok.NoArgsConstructor;
 public class UsersCommand {
     private String userEmail;
     private String nickName;
+    private String accessToken;
 }

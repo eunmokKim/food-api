@@ -7,7 +7,7 @@ import lombok.Getter;
 @AllArgsConstructor
 public enum ResultCode {
     SUCCESS("100"),
-    ERROR("200");
+    ERROR("600");
 
     private final String code;
 

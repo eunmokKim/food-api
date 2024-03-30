@@ -29,7 +29,7 @@ spring:
   jpa:
     database-platform: org.hibernate.dialect.PostgreSQLDialect
     hibernate:
-      ddl-auto: none
+      ddl-auto: update
     properties:
       hibernate:
         show_sql: true # 개발 시 SQL을 보고 싶다면 true로 설정
@@ -42,7 +42,9 @@ kakao:
     authorize : /oauth/authorize #인가코드 받기
     token: /oauth/token #토큰발급
     my-info: /v2/user/me #내정보 가져오기
+    logout: /oauth/logout #로그아웃
   client-id: a35b0f512826cd888257b52690bd81ff
   client-secret: 0M5LrUrGd6w9EK0UrenEtffR1y5Ug4Gu
   redirect-url: http://localhost:3000/redirectLogin
+  redirect-logout-url: http://localhost:3000/login
   redirect-main-url: http://localhost:3000/admin
